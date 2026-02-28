@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dxna8v8y0dhdi"]
+
+[ext_resource type="Script" uid="uid://xs04lpvvb6go" path="res://character_body_2d.gd" id="1_7k104"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(102, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(166, 132)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7k104"]
+bg_color = Color(0.004019165, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gyqm"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="Enemy" type="CharacterBody2D" unique_id=201048923 groups=["Enemy"]]
+script = ExtResource("1_7k104")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1185631056]
+offset_right = 102.0
+offset_bottom = 108.0
+color = Color(1, 0.5137255, 1, 1)
+
+[node name="MainCol" type="CollisionShape2D" parent="." unique_id=1381310732]
+position = Vector2(51, 54)
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="HurtArea" type="Area2D" parent="." unique_id=1662766680]
+
+[node name="HurtCol" type="CollisionShape2D" parent="HurtArea" unique_id=132820315]
+position = Vector2(43, 56)
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1053341443]
+offset_left = 1.0
+offset_top = -28.0
+offset_right = 103.0
+offset_bottom = -5.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7k104")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4gyqm")
+value = 28.12
+
+[connection signal="area_entered" from="HurtArea" to="." method="_on_hurt_area_area_entered"]
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]

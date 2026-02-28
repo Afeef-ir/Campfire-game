@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://chdpr0htk5f1j"]
 
 [ext_resource type="PackedScene" uid="uid://r1lfrw2x34u4" path="res://player.tscn" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://dxna8v8y0dhdi" path="res://enemy.tscn" id="2_0e48y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
-size = Vector2(1061, 516)
+size = Vector2(1061, 502.98386)
 
 [node name="Main" type="Node2D" unique_id=376366652]
 
@@ -25,5 +26,10 @@ offset_right = 1045.0
 offset_bottom = 836.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1037671074]
-position = Vector2(537, 594)
+position = Vector2(520.71204, 590.57935)
 shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="Enemy" parent="." unique_id=201048923 instance=ExtResource("2_0e48y")]
+position = Vector2(634, 201)
+start_pos = Vector2(420, 204)
+end_pos = Vector2(2055, 204)

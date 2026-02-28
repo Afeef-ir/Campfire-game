@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtl8c"]
 size = Vector2(18, 16)
 
-[node name="Bullet" type="Node2D" unique_id=186892451]
+[node name="Bullet" type="Node2D" unique_id=186892451 groups=["Bullet"]]
 script = ExtResource("1_v7oki")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1916695335]
@@ -14,7 +14,7 @@ offset_top = -1.0
 offset_right = 17.0
 offset_bottom = 15.0
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1584940362]
+[node name="Area2D" type="Area2D" parent="." unique_id=1584940362 groups=["Bullet"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=107512654]
 position = Vector2(8, 7)

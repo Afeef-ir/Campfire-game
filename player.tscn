@@ -6,6 +6,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(62, 142)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onrkg"]
+bg_color = Color(0.0333282, 0.023095287, 0.027655536, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
+bg_color = Color(0.3019608, 0.9607843, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
 [node name="Player" type="CharacterBody2D" unique_id=1662780037 groups=["Player"]]
 script = ExtResource("1_4flbx")
 
@@ -22,3 +36,25 @@ position = Vector2(59, 60)
 
 [node name="Gun" parent="." unique_id=27980014 instance=ExtResource("2_onrkg")]
 position = Vector2(54, 57)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=202472277]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1061841411]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=2095219559]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 19.0
+offset_right = 497.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.9490196, 0.2901961, 0.9490196, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.7529412, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_onrkg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i3pqv")
+min_value = -0.375
+value = 45.425
+show_percentage = false
