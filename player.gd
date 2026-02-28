@@ -16,10 +16,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	if jumps_left>2:
 		jumps_left = 2
+		#hehe
+		
 	if is_on_floor():
 		jumps_left= 2
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("Left", "Right")
 	if Input.is_action_pressed("sprint"):
 		velocity *= 2
