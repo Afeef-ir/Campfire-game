@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxna8v8y0dhdi"]
 
 [ext_resource type="Script" uid="uid://xs04lpvvb6go" path="res://character_body_2d.gd" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://by4t7pepbcg7" path="res://Level/Enemies&Spikes.png" id="2_4gyqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(102, 108)
@@ -22,13 +23,75 @@ corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
-[node name="Enemy" type="CharacterBody2D" unique_id=201048923 groups=["Enemy"]]
-script = ExtResource("1_7k104")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(0, 0, 16, 16)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1185631056]
-offset_right = 102.0
-offset_bottom = 108.0
-color = Color(1, 0.5137255, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yqyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_4gyqm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9497991, 0.42272058, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qi2p4"]
+resource_name = "hit"
+length = 1.765
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.35, 0.52, 0.71, 0.84, 0.99, 1.17, 1.29, 1.45, 1.58),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.9497991, 0.42272058, 1, 1), Color(0.9490196, 0, 0, 1), Color(0.9497991, 0.42272058, 1, 1), Color(0.9490196, 0, 0, 1), Color(0.9497991, 0.42272058, 1, 1), Color(0.9490196, 0, 0, 1), Color(0.9497991, 0.42272058, 1, 1), Color(0.9490196, 0, 0, 1), Color(0.9497991, 0.42272058, 1, 1), Color(0.9490196, 0, 0, 1), Color(0.9497991, 0.42272058, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iifgy"]
+_data = {
+&"RESET": SubResource("Animation_4gyqm"),
+&"hit": SubResource("Animation_qi2p4")
+}
+
+[node name="Enemy" type="CharacterBody2D" unique_id=201048923 groups=["Enemy"]]
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_7k104")
 
 [node name="MainCol" type="CollisionShape2D" parent="." unique_id=1381310732]
 position = Vector2(51, 54)
@@ -48,6 +111,18 @@ offset_bottom = -5.0
 theme_override_styles/background = SubResource("StyleBoxFlat_7k104")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4gyqm")
 value = 28.12
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1262734636]
+modulate = Color(0.9497991, 0.42272058, 1, 1)
+texture_filter = 1
+position = Vector2(53.5, 53.5)
+scale = Vector2(7.6875, 7.6875)
+sprite_frames = SubResource("SpriteFrames_3yqyl")
+autoplay = "default"
+frame_progress = 0.5985569
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1049740710]
+libraries/ = SubResource("AnimationLibrary_iifgy")
 
 [connection signal="area_entered" from="HurtArea" to="." method="_on_hurt_area_area_entered"]
 [connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]

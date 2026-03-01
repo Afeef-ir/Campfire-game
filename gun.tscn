@@ -5,14 +5,5 @@
 [node name="Gun" type="Node2D" unique_id=27980014]
 script = ExtResource("1_vk1bi")
 
-[node name="Rotational_offset" type="Marker2D" parent="." unique_id=2100844379]
-position = Vector2(3, 5)
-
-[node name="ColorRect" type="ColorRect" parent="Rotational_offset" unique_id=1040540501]
-offset_left = -3.0
-offset_top = -5.0
-offset_right = 98.0
-offset_bottom = 14.0
-
-[node name="Shoot_pos" type="Marker2D" parent="Rotational_offset/ColorRect" unique_id=599391612]
-position = Vector2(96, 9)
+[node name="Shoot_pos" type="Marker2D" parent="." unique_id=599391612]
+scale = Vector2(2.590909, 2.590909)
