@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxfg0fktfdv4n"
-path="res://.godot/imported/FB003.png-ae4537a3e66171c5713be04f9b029d96.ctex"
+uid="uid://bqx7hqim8yrs1"
+path="res://.godot/imported/Take hit.png-8e12fc8c75c66dc5be18e2d7909e3eee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/FB003.png"
-dest_files=["res://.godot/imported/FB003.png-ae4537a3e66171c5713be04f9b029d96.ctex"]
+source_file="res://Level/Take hit.png"
+dest_files=["res://.godot/imported/Take hit.png-8e12fc8c75c66dc5be18e2d7909e3eee.ctex"]
 
 [params]
 

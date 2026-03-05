@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddt8ykmc8mlen"
-path="res://.godot/imported/Hurt.png-651b28e57a706fd35c58f3d15d8e31f4.ctex"
+uid="uid://d1xjwrc7tln7h"
+path="res://.godot/imported/Fall.png-bc2f210098228877785687d0df9c6af6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Hurt.png"
-dest_files=["res://.godot/imported/Hurt.png-651b28e57a706fd35c58f3d15d8e31f4.ctex"]
+source_file="res://Level/Fall.png"
+dest_files=["res://.godot/imported/Fall.png-bc2f210098228877785687d0df9c6af6.ctex"]
 
 [params]
 

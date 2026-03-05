@@ -469,9 +469,10 @@ tile_set = SubResource("TileSet_d21ai")
 
 [node name="Player" parent="." unique_id=1662780037 instance=ExtResource("1_wtcfe")]
 position = Vector2(3892, 3251)
+scale = Vector2(1.75, 1.75)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1788709842]
-position = Vector2(38, 77)
+position = Vector2(5, -78.5)
 zoom = Vector2(0.49, 0.49)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1020960593]

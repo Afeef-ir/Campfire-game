@@ -1,4 +1,5 @@
 extends Node2D
+@onready var bullet_sprite: AnimatedSprite2D = $BulletSprite
 
 var speed = 2200
 # Called when the node enters the scene tree for the first time.
@@ -15,4 +16,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		pass
 	else:
+		bullet_sprite.play("blast")
+		speed = 0
+		await bullet_sprite.animation_finished
 		queue_free()
