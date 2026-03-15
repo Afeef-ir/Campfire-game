@@ -1,6 +1,5 @@
 extends Node2D
 signal fire
-@onready var rotational_offset: Marker2D = $Rotational_offset
 @onready var shoot_sfx: AudioStreamPlayer2D = $Shoot
 
 @onready var shoot_pos: Marker2D = $Shoot_pos

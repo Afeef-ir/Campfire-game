@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://cytersj4dvdog"]
+
+[ext_resource type="FontFile" uid="uid://1ky3w4soribw" path="res://images/PressStart2P-Regular.ttf" id="1_8vcau"]
+[ext_resource type="Texture2D" uid="uid://d22uv5hmaqt0t" path="res://images/pngegg.png" id="2_bl24s"]
+[ext_resource type="Texture2D" uid="uid://qg5dpchcqlnd" path="res://ldtk/Levels/WhatsApp Image 2026-03-15 at 2.14.16 PM.jpeg" id="3_p30sb"]
+[ext_resource type="AudioStream" uid="uid://f17pc6n0h4hk" path="res://images/among-us-role-reveal-sound.mp3" id="3_u4yv4"]
+[ext_resource type="AudioStream" uid="uid://c31blic56pno7" path="res://images/tf_nemesis.mp3" id="4_bl24s"]
+[ext_resource type="AudioStream" uid="uid://o2v1muukknw" path="res://images/directed-by-robert-b_voI2Z4T.mp3" id="5_p30sb"]
+
+[sub_resource type="Animation" id="Animation_p30sb"]
+resource_name = "End"
+length = 16.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9333333, 3.1, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.38, 0.38, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.1, 9.01),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AmongUs:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.12),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SadViolen:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(10.7699995),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(10.766666, 12.809999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Startsound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_53jq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AmongUs:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SadViolen:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Startsound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3q24f"]
+_data = {
+&"End": SubResource("Animation_p30sb"),
+&"RESET": SubResource("Animation_53jq0")
+}
+
+[node name="Node2D" type="Node2D" unique_id=68415112]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1245041251]
+libraries/ = SubResource("AnimationLibrary_3q24f")
+autoplay = &"End"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2001610250]
+offset_right = 1174.0
+offset_bottom = 665.0
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1920120652]
+texture_filter = 1
+offset_left = 296.0
+offset_top = 52.0
+offset_right = 504.0
+offset_bottom = 110.951965
+scale = Vector2(2.29, 2.29)
+theme_override_fonts/font = ExtResource("1_8vcau")
+text = "You Won! 
+
+Well played! "
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1700605853]
+modulate = Color(1, 1, 1, 0)
+offset_left = -27.0
+offset_top = 256.0
+offset_right = 427.0
+offset_bottom = 714.0
+texture = ExtResource("2_bl24s")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=715558306]
+modulate = Color(1, 1, 1, 0)
+offset_left = 642.0
+offset_top = 207.0
+offset_right = 1090.0
+offset_bottom = 657.0
+texture = ExtResource("3_p30sb")
+expand_mode = 1
+
+[node name="AmongUs" type="AudioStreamPlayer2D" parent="." unique_id=1199195126]
+stream = ExtResource("3_u4yv4")
+volume_db = 24.0
+playback_type = 1
+
+[node name="Startsound" type="AudioStreamPlayer2D" parent="." unique_id=628412518]
+stream = ExtResource("5_p30sb")
+volume_db = 24.0
+playback_type = 1
+
+[node name="SadViolen" type="AudioStreamPlayer2D" parent="." unique_id=1294976018]
+stream = ExtResource("4_bl24s")
+playback_type = 1

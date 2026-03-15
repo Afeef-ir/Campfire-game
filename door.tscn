@@ -70,6 +70,7 @@ texture = ExtResource("2_50cdl")
 [node name="UnlockAudio" type="AudioStreamPlayer2D" parent="." unique_id=1162992289]
 stream = ExtResource("4_y5njw")
 volume_db = 24.0
+playback_type = 1
 
 [node name="SlidingDoor" type="Sprite2D" parent="." unique_id=1405627497]
 z_index = -1
