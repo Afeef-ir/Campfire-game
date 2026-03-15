@@ -1,6 +1,7 @@
 extends Node2D
 signal fire
 @onready var rotational_offset: Marker2D = $Rotational_offset
+@onready var shoot_sfx: AudioStreamPlayer2D = $Shoot
 
 @onready var shoot_pos: Marker2D = $Shoot_pos
 
@@ -31,6 +32,7 @@ func _physics_process(_delta: float) -> void:
 		
 func shoot():
 	if can_shoot:
+		shoot_sfx.play()
 		fire.emit()
 		var new_bullet = bullet.instantiate()
 		var player_anim = player.get_node("AnimatedSprite2D")
@@ -41,7 +43,7 @@ func shoot():
 func on_stop():
 	shoot()
 	can_shoot = false
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	can_shoot = true
 	
 	

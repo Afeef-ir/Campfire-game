@@ -1,9 +1,13 @@
 [gd_scene format=4 uid="uid://chdpr0htk5f1j"]
 
+[ext_resource type="Script" uid="uid://xub0cqsln5b2" path="res://node_2d.gd" id="1_q6r6c"]
 [ext_resource type="PackedScene" uid="uid://r1lfrw2x34u4" path="res://player.tscn" id="1_wtcfe"]
 [ext_resource type="PackedScene" uid="uid://dxna8v8y0dhdi" path="res://enemy.tscn" id="2_0e48y"]
-[ext_resource type="Texture2D" uid="uid://cjn3ww65i6kqq" path="res://Level/Everything.png" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://cjn3ww65i6kqq" path="res://ldtk/Level/Everything.png" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://nkqd8h8bdrjr" path="res://platform.tscn" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://cn0o3tm7vjewc" path="res://killzone.gd" id="6_kdubu"]
+[ext_resource type="AudioStream" uid="uid://dfb5u5wxk4dhk" path="res://sfx/Dark _Atmosphere13_Looped_24bit.wav" id="7_d21ai"]
+[ext_resource type="PackedScene" uid="uid://b7wxox770hyw3" path="res://checkpoint.tscn" id="8_rj586"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
 texture = ExtResource("3_epypp")
@@ -453,7 +457,10 @@ sources/0 = SubResource("TileSetAtlasSource_kdubu")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(1061, 502.98386)
 
-[node name="Main" type="Node2D" unique_id=376366652]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d21ai"]
+
+[node name="level_1" type="Node2D" unique_id=376366652]
+script = ExtResource("1_q6r6c")
 
 [node name="bg" type="TileMapLayer" parent="." unique_id=1380799663]
 texture_filter = 1
@@ -468,7 +475,7 @@ tile_map_data = PackedByteArray("AAAbAAkAAAAHAAgAAAAcAAkAAAAHAAgAAAAdAAkAAAAHAAg
 tile_set = SubResource("TileSet_d21ai")
 
 [node name="Player" parent="." unique_id=1662780037 instance=ExtResource("1_wtcfe")]
-position = Vector2(3892, 3251)
+position = Vector2(3910.9998, 3389.0002)
 scale = Vector2(1.75, 1.75)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1788709842]
@@ -503,3 +510,22 @@ position = Vector2(4687, 2745.0002)
 
 [node name="Platform3" parent="." unique_id=2113932595 instance=ExtResource("4_0hol4")]
 position = Vector2(5319.0005, 3092)
+
+[node name="Killzone" type="Area2D" parent="." unique_id=686605007]
+position = Vector2(4739, 4476)
+script = ExtResource("6_kdubu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=753192594]
+shape = SubResource("WorldBoundaryShape2D_d21ai")
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1902625540]
+stream = ExtResource("7_d21ai")
+volume_db = -7.123
+autoplay = true
+mix_target = 1
+playback_type = 1
+
+[node name="Checkpoint" parent="BGM" unique_id=2107098562 instance=ExtResource("8_rj586")]
+position = Vector2(5882, 3507)
+
+[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://bbl5ox1kslqa5"]
 
 [ext_resource type="Script" uid="uid://bjwd25f34ej74" path="res://gun.gd" id="1_vk1bi"]
+[ext_resource type="AudioStream" uid="uid://bwcy5xc44txpj" path="res://sfx/whoosh1.wav" id="2_dk5gl"]
 
 [node name="Gun" type="Node2D" unique_id=27980014]
 script = ExtResource("1_vk1bi")
 
 [node name="Shoot_pos" type="Marker2D" parent="." unique_id=599391612]
 scale = Vector2(2.590909, 2.590909)
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="." unique_id=222158731]
+stream = ExtResource("2_dk5gl")
+playback_type = 1

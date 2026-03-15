@@ -1,0 +1,32 @@
+[remap]
+
+importer="LDtk_world.import"
+type="PackedScene"
+uid="uid://bs3xg3ibhkbqj"
+path="res://.godot/imported/test-api.ldtk-88b524fb690a8a8569297a2859e7048c.scn"
+
+[deps]
+
+files=["res://maps/test-map/test-api/tilesets/test-api-tileset-16x16.res", "res://maps/test-map/test-api/tilesets/test-api-tileset-8x8.res"]
+
+source_file="res://maps/test-map/test-api.ldtk"
+dest_files=["res://.godot/imported/test-api.ldtk-88b524fb690a8a8569297a2859e7048c.scn", "res://maps/test-map/test-api/tilesets/test-api-tileset-16x16.res", "res://maps/test-map/test-api/tilesets/test-api-tileset-8x8.res"]
+
+[params]
+
+world_add_metadata=true
+world_post_import_script=""
+Tilesets=""
+tileset_add_metadata=true
+import_tileset_custom_data=true
+tileset_post_import_script="res://addons/amano-ldtk-importer/examples/post-import-scripts/post-import-tileset-add-collisions-by-int-grid.gd"
+Levels=""
+level_add_metadata=true
+import_all_levels=true
+levels_to_import="0,1"
+pack_levels=false
+level_post_import_script="res://addons/amano-ldtk-importer/examples/post-import-scripts/post-import-level-multiple-scripts.gd"
+Entities=""
+import_entities=true
+entity_add_metadata=true
+entity_post_import_script="res://addons/amano-ldtk-importer/examples/post-import-scripts/post-import-entities-create-nodes.gd"

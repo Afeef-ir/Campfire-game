@@ -2,6 +2,8 @@ extends CharacterBody2D
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var death: AudioStreamPlayer2D = $Death
+@onready var hurt: AudioStreamPlayer2D = $Hurt
 
 @export var start_pos : Vector2 
 @export var end_pos : Vector2
@@ -29,8 +31,7 @@ func _physics_process(delta: float) -> void:
 		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if health<=0:
-		queue_free()
+
 	move_and_slide()
 
 
@@ -38,12 +39,22 @@ func _on_hurt_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		
 		body.health -= 40
-		body.apply_knockback(global_position)
-		var anim = body.get_node("AnimationPlayer")
-		anim.play("hurt")
+		if body.health>0:
+			body.apply_knockback(global_position)
+			var anim = body.get_node("AnimationPlayer")
+			anim.play("hurt")
 
 
 func _on_hurt_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
 		animation_player.play("hit")
 		health -=40
+		if health<=0:
+			process_mode = Node.PROCESS_MODE_DISABLED
+			animated_sprite_2d.play("dead")
+			if !death.playing:
+				death.play()
+				await get_tree().create_timer(death.stream.get_length()).timeout
+			queue_free()
+		else:
+			hurt.play()
