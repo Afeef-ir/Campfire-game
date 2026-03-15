@@ -17,7 +17,16 @@ const SPRINT_MULTIPLIER = 1.5
 @onready var walk: AudioStreamPlayer2D = $walk
 @onready var death: AudioStreamPlayer2D = $Death
 @onready var hurt: AudioStreamPlayer2D = $Hurt
+#signals
+signal key_picked(tag)
+signal key_used(tag, remaining)
 
+#constants
+const KEY_UI_SCENE := preload("res://KeyUI.tscn")
+
+#variables
+@onready var keys_container: HBoxContainer = $HUD/Control/KeyContainer
+var collected_keys: Array[String] = []
 # State
 var health := 100
 var jumps_left := 2
@@ -33,6 +42,8 @@ signal shoot_stop
 
 
 func _ready() -> void:
+	for child in keys_container.get_children():
+		keys_container.remove_child(child)
 	spawn_pos = global_position
 	gun.connect("fire", Callable(self, "on_fire"))
 	get_tree().paused = false
@@ -142,3 +153,48 @@ func respawn() -> void:
 	global_position = spawn_pos
 	animated_sprite_2d.play("Idle")
 	get_tree().paused = false
+
+
+func pickup_key(tag: String, icon: Texture2D) -> void:
+	if tag in collected_keys:
+		return
+		
+	collected_keys.append(tag)
+	_add_key_to_ui(tag, icon)
+	emit_signal("key_picked", tag)
+	print("Picked key:", tag)
+	
+	
+func has_key(tag: String) -> bool:
+	return collected_keys.find(tag) != -1
+	
+func use_key(tag: String) -> bool:
+	if has_key(tag):
+		collected_keys.erase(tag)
+		remove_key_from_ui(tag)
+		emit_signal("key_used", tag)
+		print("Used key:", tag)
+		return true
+		
+	return false
+
+func _add_key_to_ui(tag: String, icon: Texture2D) -> void:
+	var key_ui = KEY_UI_SCENE.instantiate()
+	var icon_node: TextureRect = key_ui.get_node("Icon")
+	var label_node: Label = key_ui.get_node("TagLabel")
+	icon_node.texture = icon
+	label_node.text = tag
+
+	keys_container.add_child(key_ui)
+	key_ui.modulate.a = 0
+	key_ui.position = Vector2(60 * (collected_keys.size() - 1), 0)
+
+	var tween = create_tween()
+	tween.tween_property(key_ui, "modulate:a", 1.0, 1.0).set_trans(Tween.TRANS_SINE)
+func remove_key_from_ui(tag: String):
+	for key_ui in keys_container.get_children():
+		var label_node = key_ui.get_node("TagLabel")
+		if label_node.text.to_lower() == tag.to_lower():
+			key_ui.queue_free()
+			break
+	

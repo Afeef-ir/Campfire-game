@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dtdgqe2gsfh2l" path="res://sfx/step.ogg" id="10_n7ghd"]
 [ext_resource type="AudioStream" uid="uid://dselipm3j75b4" path="res://sfx/ghost.ogg" id="11_nvl01"]
 [ext_resource type="AudioStream" uid="uid://x0124haykwwq" path="res://sfx/Playerdamage.ogg" id="12_ivps1"]
+[ext_resource type="PackedScene" uid="uid://dafqudrokiopm" path="res://KeyUI.tscn" id="13_urp6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(59, 92.5)
@@ -531,5 +532,33 @@ playback_type = 1
 stream = ExtResource("12_ivps1")
 volume_db = 2.137
 playback_type = 1
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1349916302]
+
+[node name="Control" type="Control" parent="HUD" unique_id=94280256]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="KeyContainer" type="HBoxContainer" parent="HUD/Control" unique_id=653651438]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 562.0
+offset_right = 550.0
+offset_bottom = 602.0
+scale = Vector2(1.66, 1.66)
+
+[node name="KeyUi" parent="HUD/Control/KeyContainer" unique_id=446478331 instance=ExtResource("13_urp6f")]
+layout_mode = 2
+
+[node name="KeyUi2" parent="HUD/Control/KeyContainer" unique_id=1289642019 instance=ExtResource("13_urp6f")]
+layout_mode = 2
+
+[node name="KeyUi3" parent="HUD/Control/KeyContainer" unique_id=1834531888 instance=ExtResource("13_urp6f")]
+layout_mode = 2
+
+[node name="KeyUi4" parent="HUD/Control/KeyContainer" unique_id=745959319 instance=ExtResource("13_urp6f")]
+layout_mode = 2
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cofovayt1ks8t"]
+
+[ext_resource type="Texture2D" uid="uid://dn1a2f0qy4emg" path="res://LocknKey/Door_Lock_Right.png" id="1_0phs7"]
+[ext_resource type="Script" uid="uid://c683swsub8hdm" path="res://door.gd" id="1_50cdl"]
+[ext_resource type="Texture2D" uid="uid://b0u2d56s12pbt" path="res://LocknKey/Door_Frame.png" id="2_50cdl"]
+[ext_resource type="Texture2D" uid="uid://irte41ejb7hw" path="res://LocknKey/Door_Sliding.png" id="3_y5njw"]
+[ext_resource type="AudioStream" uid="uid://dpskygfrys3pw" path="res://LocknKey/unlock.wav" id="4_y5njw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50cdl"]
+size = Vector2(25, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5njw"]
+size = Vector2(8.25, 47.625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xadh"]
+atlas = ExtResource("1_0phs7")
+region = Rect2(30, 9, 34, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6hwww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xadh")
+}],
+"loop": true,
+"name": &"Closed",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[node name="Door" type="StaticBody2D" unique_id=1599023514]
+scale = Vector2(4, 4)
+script = ExtResource("1_50cdl")
+
+[node name="LockArea" type="Area2D" parent="." unique_id=1746937479]
+
+[node name="LockTrigger" type="CollisionShape2D" parent="LockArea" unique_id=1918518595]
+z_index = 1
+position = Vector2(-7, -24)
+shape = SubResource("RectangleShape2D_50cdl")
+
+[node name="LockCol" type="CollisionShape2D" parent="." unique_id=72158842]
+position = Vector2(1.875, -23.8125)
+shape = SubResource("RectangleShape2D_y5njw")
+
+[node name="Lock" type="AnimatedSprite2D" parent="." unique_id=896900936]
+z_index = 10
+texture_filter = 1
+position = Vector2(1, -27)
+sprite_frames = SubResource("SpriteFrames_6hwww")
+animation = &"Closed"
+
+[node name="Frame" type="Sprite2D" parent="." unique_id=392594520]
+z_index = -1
+texture_filter = 1
+position = Vector2(-14, -32)
+texture = ExtResource("2_50cdl")
+
+[node name="LockSpritePosLeft" type="Marker2D" parent="." unique_id=1261986802]
+
+[node name="LockColPosLeft" type="Marker2D" parent="." unique_id=155705795]
+
+[node name="LockAreaPosLeft" type="Marker2D" parent="." unique_id=510559634]
+
+[node name="UnlockAudio" type="AudioStreamPlayer2D" parent="." unique_id=1162992289]
+stream = ExtResource("4_y5njw")
+volume_db = 24.0
+
+[node name="SlidingDoor" type="Sprite2D" parent="." unique_id=1405627497]
+z_index = -1
+texture_filter = 1
+position = Vector2(-14, -32)
+texture = ExtResource("3_y5njw")
+
+[node name="Label" type="Label" parent="." unique_id=56437751]
+offset_left = -24.0
+offset_top = -38.0
+offset_right = -2.0
+offset_bottom = -15.0
+text = "1A"
+
+[connection signal="body_entered" from="LockArea" to="." method="_on_lock_area_body_entered"]

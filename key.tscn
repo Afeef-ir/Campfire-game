@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bdrmp34e86b05"]
+
+[ext_resource type="Script" uid="uid://bxxyplmkv3hcr" path="res://key.gd" id="1_p0yg6"]
+[ext_resource type="Texture2D" uid="uid://csd4k3di8r57d" path="res://LocknKey/Key.png" id="1_up4cr"]
+[ext_resource type="AudioStream" uid="uid://bgvhc38t12diy" path="res://LocknKey/Pickup.wav" id="3_krfvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0yg6"]
+size = Vector2(28, 20)
+
+[node name="Key" type="Area2D" unique_id=27201691]
+scale = Vector2(2.875, 2.875)
+script = ExtResource("1_p0yg6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1135116802]
+texture_filter = 1
+texture = ExtResource("1_up4cr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1793532]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1706135106]
+shape = SubResource("RectangleShape2D_p0yg6")
+
+[node name="KeyCollect" type="AudioStreamPlayer2D" parent="." unique_id=958780475]
+stream = ExtResource("3_krfvd")
+volume_db = 24.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

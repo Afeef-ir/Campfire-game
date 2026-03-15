@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dafqudrokiopm"]
+
+[ext_resource type="Texture2D" uid="uid://csd4k3di8r57d" path="res://LocknKey/Key.png" id="1_chqpa"]
+
+[node name="KeyUi" type="HBoxContainer" unique_id=446478331]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.565, 2.565)
+
+[node name="Icon" type="TextureRect" parent="." unique_id=141257020]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_chqpa")
+
+[node name="TagLabel" type="Label" parent="." unique_id=1411483731]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9607843, 0.8901961, 0, 1)
+theme_override_constants/outline_size = 3
+text = "ABC 123"
