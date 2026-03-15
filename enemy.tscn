@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://j2xhvip4ahdd" path="res://sfx/EnemyHurt.ogg" id="4_iifgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
-size = Vector2(101.60002, 148.00002)
+size = Vector2(101.60002, 150.00003)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
 size = Vector2(132.80003, 176.00003)
@@ -165,7 +165,7 @@ scale = Vector2(1.25, 1.25)
 script = ExtResource("1_7k104")
 
 [node name="MainCol" type="CollisionShape2D" parent="." unique_id=1381310732]
-position = Vector2(-6.3999977, -75.2)
+position = Vector2(-6.3999968, -74.19998)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_4gyqm")
 

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dafqudrokiopm" path="res://KeyUI.tscn" id="13_urp6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(59, 92.5)
+size = Vector2(59, 92)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onrkg"]
 bg_color = Color(0.0333282, 0.023095287, 0.027655536, 1)
@@ -464,7 +464,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=445278421]
-position = Vector2(1, -45.75)
+position = Vector2(1, -46)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=202472277]
