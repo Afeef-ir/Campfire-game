@@ -544,9 +544,6 @@ autoplay = true
 mix_target = 1
 playback_type = 1
 
-[node name="Checkpoint" parent="BGM" unique_id=2107098562 instance=ExtResource("8_rj586")]
-position = Vector2(5882, 3507)
-
 [node name="LocknKeys" type="Node" parent="." unique_id=864783977]
 
 [node name="Key" parent="LocknKeys" unique_id=27201691 instance=ExtResource("10_hqns4")]
@@ -570,5 +567,11 @@ required_key_tag = "1A"
 position = Vector2(16045, 3434.0002)
 scale = Vector2(6, 6)
 required_key_tag = "2A"
+
+[node name="Checkpoint" parent="." unique_id=2107098562 instance=ExtResource("8_rj586")]
+position = Vector2(12762, 2000)
+
+[node name="Checkpoint2" parent="." unique_id=1597855567 instance=ExtResource("8_rj586")]
+position = Vector2(16244, 3440)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

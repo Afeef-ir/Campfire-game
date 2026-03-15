@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b0u2d56s12pbt" path="res://LocknKey/Door_Frame.png" id="2_50cdl"]
 [ext_resource type="Texture2D" uid="uid://irte41ejb7hw" path="res://LocknKey/Door_Sliding.png" id="3_y5njw"]
 [ext_resource type="AudioStream" uid="uid://dpskygfrys3pw" path="res://LocknKey/unlock.wav" id="4_y5njw"]
+[ext_resource type="FontFile" uid="uid://1ky3w4soribw" path="res://images/PressStart2P-Regular.ttf" id="6_4xadh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50cdl"]
 size = Vector2(25, 47)
@@ -77,10 +78,14 @@ position = Vector2(-14, -32)
 texture = ExtResource("3_y5njw")
 
 [node name="Label" type="Label" parent="." unique_id=56437751]
-offset_left = -24.0
-offset_top = -38.0
-offset_right = -2.0
-offset_bottom = -15.0
+z_index = -1
+texture_filter = 1
+offset_left = -25.25
+offset_top = -28.500002
+offset_right = 6.75
+offset_bottom = -10.500002
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = ExtResource("6_4xadh")
 text = "1A"
 
 [connection signal="body_entered" from="LockArea" to="." method="_on_lock_area_body_entered"]

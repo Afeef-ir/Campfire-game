@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://nqmwjs4mhvh"]
+
+[ext_resource type="Script" uid="uid://dw24splbhptk8" path="res://menu.gd" id="1_mae5d"]
+[ext_resource type="Texture2D" uid="uid://j2px86p833lf" path="res://ChatGPT Image Mar 15, 2026, 01_07_03 PM.png" id="2_mae5d"]
+[ext_resource type="FontFile" uid="uid://1ky3w4soribw" path="res://images/PressStart2P-Regular.ttf" id="2_ouk20"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0.19454467, 0.018696342, 0.27730417, 1)
+shadow_color = Color(0.5019608, 0.11372549, 0.94509804, 1)
+shadow_size = 41
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mae5d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
+bg_color = Color(0, 0.016897315, 0.37683767, 1)
+border_width_left = 10
+border_width_top = 6
+border_width_right = 10
+border_width_bottom = 6
+border_color = Color(0.0076186024, 0, 0.011627772, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.972549)
+shadow_size = 9
+
+[node name="Control" type="Control" unique_id=141980732]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mae5d")
+
+[node name="Panel" type="Panel" parent="." unique_id=1425171420]
+z_index = -1
+layout_mode = 0
+offset_left = -29.0
+offset_top = -19.0
+offset_right = 1179.0
+offset_bottom = 694.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ytr4m")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2084948309]
+layout_mode = 0
+offset_left = 38.0
+offset_top = -8.0
+offset_right = 1113.0
+offset_bottom = 642.0
+texture = ExtResource("2_mae5d")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1252870130]
+layout_mode = 0
+offset_left = 215.00002
+offset_top = 398.0
+offset_right = 673.0
+offset_bottom = 652.0
+scale = Vector2(1.6, 1.6)
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1459220655]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.41568628, 0.9490196, 1)
+theme_override_colors/font_pressed_color = Color(0.03529412, 0.7921569, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.5529412, 0.9490196, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 18
+theme_override_icons/icon = SubResource("ViewportTexture_mae5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=999022664]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.41568628, 0.9490196, 1)
+theme_override_colors/font_pressed_color = Color(0.03529412, 0.7921569, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.5529412, 0.9490196, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 18
+theme_override_icons/icon = SubResource("ViewportTexture_mae5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1731128863]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.41568628, 0.9490196, 1)
+theme_override_colors/font_pressed_color = Color(0.03529412, 0.7921569, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.5529412, 0.9490196, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 18
+theme_override_icons/icon = SubResource("ViewportTexture_mae5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
